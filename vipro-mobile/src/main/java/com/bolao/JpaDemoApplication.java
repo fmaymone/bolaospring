@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.bolao.database.jpa.TeamJpaRepository;
+import com.bolao.entity.Team;
 
 
 
@@ -29,14 +30,14 @@ public class JpaDemoApplication implements CommandLineRunner {
 		
 	logger.info("Team id 10001 -> {}", repository.findById(10001l).getName());
 //		
-//		logger.info("Inserting -> {}", 
-//				repository.insert(new Team("Tara", "Berlin", new Date())));
+		logger.info("Inserting -> {}", 
+			repository.insert(new Team(1003l, "USA")));
 //		
-//		logger.info("Update 10003 -> {}", 
-//				repository.update(new Team(10003, "Pieter", "Utrecht", new Date())));
+	logger.info("Update 10003 -> {}", 
+			repository.update(new Team(10003l, "Pieter")));
 //		
 //		repository.deleteById(10002);
 //
-//		logger.info("All users -> {}", repository.findAll());
+	logger.info("All Teams -> {}", repository.findAll());
 	}
 }

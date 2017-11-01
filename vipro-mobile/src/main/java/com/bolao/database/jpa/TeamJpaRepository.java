@@ -1,7 +1,10 @@
 package com.bolao.database.jpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -19,5 +22,28 @@ public class TeamJpaRepository {
 		
 		return em.find(Team.class, id);
 	}
+	
+	public Team update(Team team) {
+
+		return em.merge(team);
+		
+	}
+	
+	public Team insert(Team team) {
+
+		return em.merge(team);
+		
+	}
+
+	public List<Team> findAll() {
+		TypedQuery<Team> namedQuery = em.createNamedQuery("find_all_teams", Team.class);
+		return namedQuery.getResultList();
+	}
+	
+	public void deleteById(long id) {
+		Team team = findById(id);
+		em.remove(team);
+	}
+
 
 }
