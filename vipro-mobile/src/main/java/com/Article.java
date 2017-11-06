@@ -1,4 +1,4 @@
-package com.bolao;
+package com;
 
 import java.io.Serializable;
 

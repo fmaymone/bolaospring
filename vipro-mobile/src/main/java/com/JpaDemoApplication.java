@@ -1,4 +1,4 @@
-package com.bolao;
+package com;
 
 
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ import com.bolao.entity.Team;
 
 
 
-@SpringBootApplication
+
 public class JpaDemoApplication implements CommandLineRunner {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

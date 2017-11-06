@@ -1,4 +1,4 @@
-package com.bolao;
+package com;
 import java.net.URI;
 
 import javax.persistence.EntityManager;

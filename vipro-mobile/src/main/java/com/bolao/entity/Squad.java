@@ -9,16 +9,26 @@ import javax.persistence.Id;
 @Entity
 public class Squad {
 	
-	public long getId() {
+	protected  Squad() {
+		
+	}
+	
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	public int getNum() {
 		return num;
+	}
+
+	public Squad(int num, String pos) {
+		super();
+		this.num = num;
+		this.pos = pos;
 	}
 
 	public void setNum(int num) {
@@ -35,7 +45,7 @@ public class Squad {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Long id;
 	
 	@Column
 	private int num;

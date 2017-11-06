@@ -1,1 +1,13 @@
-INSERT INTO TEAM (ID,NAME) values (10001, 'Brasil');
+INSERT INTO TEAM(ID,NAME) values (1001,'Alemanha');
+INSERT INTO PROCESSO(ID,STATUS, LASTUPDATEDDATE, CREATEDDATE ) values (1001,'Em andamento', sysdate(),sysdate() );
+
+
+
+INSERT INTO SQUAD(ID,NUM,POS) values (1,11,'ATA');
+INSERT INTO SQUAD(ID,NUM,POS) values (2,10,'MEIO');
+
+
+INSERT INTO PLAYER(ID,NAME,SQUAD_ID) values (1,'Romario',1);
+INSERT INTO PLAYER(ID,NAME,SQUAD_ID) values (2,'Neymar',2);
+
+INSERT INTO TEAM(ID,NAME) values (1,'Brasil');
