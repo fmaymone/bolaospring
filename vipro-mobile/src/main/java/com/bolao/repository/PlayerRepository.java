@@ -1,6 +1,10 @@
 package com.bolao.repository;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,6 +58,32 @@ public class PlayerRepository {
 		
 		em.persist(player);
 
+	}
+
+	public Player findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Player findById(Long id) {
+		// TODO Auto-generated method stub
+		return em.find(Player.class, id);
+	}
+
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<Player> findAll() {
+		// TODO Auto-generated method stub
+		Query query = em.createQuery("SELECT p FROM Player p");
+	    return (List<Player>) query.getResultList();
 	}
 
 }

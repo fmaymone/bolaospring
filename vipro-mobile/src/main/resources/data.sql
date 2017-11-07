@@ -1,5 +1,5 @@
 INSERT INTO TEAM(ID,NAME) values (1001,'Alemanha');
-INSERT INTO PROCESSO(ID,STATUS, LASTUPDATEDDATE, CREATEDDATE ) values (1001,'Em andamento', sysdate(),sysdate() );
+INSERT INTO PROCESSO(CODIGOPROCESSO,STATUS, LASTUPDATEDDATE, CREATEDDATE ) values (1001,'Em andamento', sysdate(),sysdate() );
 
 
 

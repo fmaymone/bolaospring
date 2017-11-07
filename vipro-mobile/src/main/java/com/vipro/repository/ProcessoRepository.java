@@ -25,7 +25,7 @@ public class ProcessoRepository {
 
 	public Processo save(Processo p) {
 
-		if (p.getId() == null) {
+		if (p.getCodigoProcesso() == null) {
 			em.persist(p);
 
 		} else {
