@@ -17,10 +17,16 @@ public class Team {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Long id;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	@Column
 	private String name;
-	public Team(long l, String string) {
+	public Team(Long l, String string) {
 		this.id = l;
 		this.name = string;
 	}

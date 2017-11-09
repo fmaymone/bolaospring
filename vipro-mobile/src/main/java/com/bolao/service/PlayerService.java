@@ -2,8 +2,11 @@ package com.bolao.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.bolao.entity.Player;
 
+@Repository
 public interface PlayerService {
 	
 	

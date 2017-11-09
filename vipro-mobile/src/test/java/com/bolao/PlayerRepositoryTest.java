@@ -37,6 +37,17 @@ public class PlayerRepositoryTest {
 		logger.info("Squad é -> {}", s);
 
 	}
+	@Test
+	@Transactional
+	public void retrieveSquad_bidirectional() {
+
+		Squad s = em.find(Squad.class, 1L);
+		logger.info("Squad é -> {}", s);
+		
+		Player p = s.getPlayer();
+		logger.info("Player é -> {}", p);
+
+	}
 
 	@Test
 	//@Transactional // ao criar um transactional é criado um Persistence Context SE EU RETIRAR o transactional

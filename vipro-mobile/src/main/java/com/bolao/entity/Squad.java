@@ -2,9 +2,11 @@ package com.bolao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Squad {
@@ -52,6 +54,17 @@ public class Squad {
 	
 	@Column
 	private String pos;
+	
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="squad")
+	private Player player;
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
 
 	
 
