@@ -20,13 +20,18 @@ public class RoundRepository {
 	@Autowired
 	EntityManager em;
 	
+	@Transactional
 	public void addMatchToRound(Round round, Match match) {
-		
+		em.persist(match);
 		round.addMatch(match);
 		em.persist(round);
 		
 		
 		
+	}
+	
+	public Round findById(long id) {
+		return em.find(Round.class, id);
 	}
 
 }
