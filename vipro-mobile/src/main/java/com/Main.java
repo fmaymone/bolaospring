@@ -8,11 +8,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bolao.entity.Match;
-import com.bolao.entity.Team;
+import com.bolao.entity.Pool;
+import com.bolao.entity.UefaChampionsLeagueCompetition;
+import com.bolao.entity.User;
+import com.bolao.entity.WorldCupCompetition;
+import com.bolao.repository.CompetitionRepository;
 import com.bolao.repository.PlayerRepository;
 import com.bolao.repository.RoundRepository;
 import com.bolao.repository.TeamRepository;
+import com.bolao.repository.UserRepository;
 import com.vipro.repository.ProcessoRepository;
 
 @SpringBootApplication
@@ -20,18 +24,11 @@ public class Main implements CommandLineRunner {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	ProcessoRepository repository;
-	
 
-	@Autowired
-	PlayerRepository playerRepository;
 	
 	@Autowired
-	TeamRepository teamRepository;
+	CompetitionRepository competitionRepository;
 	
-	@Autowired
-	RoundRepository roundRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Main.class, args);
@@ -40,22 +37,13 @@ public class Main implements CommandLineRunner {
 	@Override
 	@Transactional
 	public void run(String... arg0) throws Exception {
-		// TODO Auto-generated method stub	
-		//repository.playWithEM();
-		//playerRepository.savePlayerWithSquad();
-		Match match1 = new Match();
-		Team team1 = teamRepository.findById(1L);
-		Team team2 = teamRepository.findById(2L);
-		match1.setAway(team1);
-		match1.setHome(team2);
 		
 		
-		Match match2 = new Match();
-		match1.setAway(team2);
-		match1.setHome(team1);
+
+		competitionRepository.insert(new WorldCupCompetition("Copa 2014", "Messi"));
+		competitionRepository.insert(new UefaChampionsLeagueCompetition("Champions 2012", "Londres"));
 		
-		roundRepository.addMatchToRound(roundRepository.findById(1L), match1);
-		
+		logger.info("Todas as Competiçoes -> {}", competitionRepository.retrieveAllCompetitions());
 		
 		
 		
