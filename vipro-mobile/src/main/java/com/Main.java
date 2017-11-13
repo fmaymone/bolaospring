@@ -1,5 +1,8 @@
 package com;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +25,13 @@ public class Main implements CommandLineRunner {
 
 	@Autowired
 	ProcessoRepository repository;
-	
 
 	@Autowired
 	PlayerRepository playerRepository;
-	
+
 	@Autowired
 	TeamRepository teamRepository;
-	
+
 	@Autowired
 	RoundRepository roundRepository;
 
@@ -40,26 +42,26 @@ public class Main implements CommandLineRunner {
 	@Override
 	@Transactional
 	public void run(String... arg0) throws Exception {
-		// TODO Auto-generated method stub	
-		//repository.playWithEM();
-		//playerRepository.savePlayerWithSquad();
+		// TODO Auto-generated method stub
+		// repository.playWithEM();
+		// playerRepository.savePlayerWithSquad();
 		Match match1 = new Match();
 		Team team1 = teamRepository.findById(1L);
 		Team team2 = teamRepository.findById(2L);
 		match1.setAway(team1);
 		match1.setHome(team2);
-		
-		
+
 		Match match2 = new Match();
-		match1.setAway(team2);
-		match1.setHome(team1);
-		
-		roundRepository.addMatchToRound(roundRepository.findById(1L), match1);
-		
-		
-		
-		
-		
+		match2.setAway(team2);
+		match2.setHome(team1);
+
+		List<Match> matches = new ArrayList();
+		matches.add(match1);
+		matches.add(match2);
+
+		// roundRepository.addMatchToRound(roundRepository.findById(1L), match1);
+		// roundRepository.addMatchToRound(roundRepository.findById(1L), match2);
+		roundRepository.addMatchToRound(roundRepository.findById(1L), matches);
 
 	}
 

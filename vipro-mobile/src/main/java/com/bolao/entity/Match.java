@@ -55,6 +55,12 @@ public class Match {
 	
 	@OneToOne
 	private Team home;
+	
+	@Override
+	public String toString() {
+		
+		return "Match number " + this.num + " || between " + this.home.getName() + " and " + this.away.getName() + " ||";
+	}
 
 	public long getId() {
 		return id;
