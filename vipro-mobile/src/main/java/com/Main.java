@@ -8,22 +8,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bolao.entity.UefaChampionsLeagueCompetition;
-import com.bolao.entity.WorldCupCompetition;
 import com.bolao.repository.CompetitionRepository;
 import com.bolao.repository.PlayerRepository;
 import com.bolao.repository.RoundRepository;
 import com.bolao.repository.TeamRepository;
-import com.vipro.repository.ProcessoRepository;
 
 @SpringBootApplication
 public class Main implements CommandLineRunner {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-
-	@Autowired
-	ProcessoRepository repository;
 
 
 	@Autowired
