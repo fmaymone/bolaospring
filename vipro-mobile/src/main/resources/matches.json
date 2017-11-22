@@ -1,0 +1,22 @@
+[
+{
+"num": "1",
+"start_at": "2018-06-14T18:00:00.000Z",
+"home": { "name" : "Russia",
+		"seedOnCompetition": "A1"
+
+},
+"away": { "name" : "A2",
+		"seedOnCompetition": "A2"
+
+}
+
+},
+{
+"num": "2",
+"start_at": "2018-06-15T17:00:00.000Z",
+"home": "A3",
+"away": "A4"
+}
+
+]
