@@ -1,5 +1,7 @@
 package com.bolao.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +22,17 @@ public class Match {
 	
 	public Round getRound() {
 		return round;
+	}
+	
+	@Column
+	private Date start_at;
+
+	public Date getStart_at() {
+		return start_at;
+	}
+
+	public void setStart_at(Date start_at) {
+		this.start_at = start_at;
 	}
 
 	public void setRound(Round round) {

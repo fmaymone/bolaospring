@@ -12,29 +12,26 @@ import com.bolao.repository.CompetitionRepository;
 import com.bolao.repository.PlayerRepository;
 import com.bolao.repository.RoundRepository;
 import com.bolao.repository.TeamRepository;
+import com.bolao.util.CreateCompetition;
 
 @SpringBootApplication
 public class Main implements CommandLineRunner {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
 	@Autowired
 	PlayerRepository playerRepository;
 
-
-	
+	@Autowired
+	CreateCompetition createCompetition;
 
 	@Autowired
-
 	TeamRepository teamRepository;
 
 	@Autowired
 	RoundRepository roundRepository;
 
 	CompetitionRepository competitionRepository;
-	
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(Main.class, args);
@@ -44,17 +41,14 @@ public class Main implements CommandLineRunner {
 	@Transactional
 	public void run(String... arg0) throws Exception {
 
-		
+		createCompetition.createTeams();
+		createCompetition.createMatches();
+		// competitionRepository.insert(new WorldCupCompetition("Copa 2014", "Messi"));
+		// competitionRepository.insert(new UefaChampionsLeagueCompetition("Champions
+		// 2012", "Londres"));
 
-//		competitionRepository.insert(new WorldCupCompetition("Copa 2014", "Messi"));
-//		competitionRepository.insert(new UefaChampionsLeagueCompetition("Champions 2012", "Londres"));
-		
-//		logger.info("Todas as Competiçoes -> {}", competitionRepository.retrieveAllCompetitions());
-		
-		
-		
-		
-
+		// logger.info("Todas as Competiçoes -> {}",
+		// competitionRepository.retrieveAllCompetitions());
 
 	}
 

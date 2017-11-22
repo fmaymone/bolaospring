@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 @EnableAutoConfiguration 
@@ -15,6 +16,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 @NamedQuery(name="find_all_teams", query="select t from Team t")
 public class Team {
 	
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -22,13 +25,14 @@ public class Team {
 	private String name;
 	
 	@Column
-	private Integer numberOnCompetition;
+	private String seedOnCompetition;
 	
-	public Integer getNumberOnCompetition() {
-		return numberOnCompetition;
+	
+	public String getSeedOnCompetition() {
+		return seedOnCompetition;
 	}
-	public void setNumberOnCompetition(Integer numberOnCompetition) {
-		this.numberOnCompetition = numberOnCompetition;
+	public void setSeedOnCompetition(String seedOnCompetition) {
+		this.seedOnCompetition = seedOnCompetition;
 	}
 	public Long getId() {
 		return id;
@@ -46,16 +50,25 @@ public class Team {
 		super();
 	}
 	
-	public Team(String name, Integer numberOnCompetition) {
+	public Team(String name, String seedOnCompetition) {
+		
+		
 		
 		this.name = name;
-		this.numberOnCompetition = numberOnCompetition;
+		this.seedOnCompetition = seedOnCompetition;
+		
+	}
+	
+	public Team(String seedOnCompetition) {
+		
+		
+		this.seedOnCompetition = seedOnCompetition;
 		
 	}
 	
 	@Override
 	public String toString() {
-		return "Team [id=" + id + ", name=" + name + ", numberOnCompetition=" + numberOnCompetition + "]";
+		return "Team [id=" + id + ", name=" + name + ", numberOnCompetition=" + seedOnCompetition + "]";
 	}
 	public String getName() {
 		return name;
