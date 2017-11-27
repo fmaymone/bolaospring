@@ -37,14 +37,21 @@ public class CreateCompetition {
 		try {
 			List<Match> stateList = mapper.readValue(is, mapType);
 			for (Match match : stateList) {
-				
-				Team home = teamRepository.findBySeedOnCompetition(match.getHome().getSeedOnCompetition()).get(0);
-				match.setHome(home);
-				
-				Team away = teamRepository.findBySeedOnCompetition(match.getAway().getSeedOnCompetition()).get(0);
-				match.setAway(away);
 
-				matchRepository.saveAndFlush(match);
+				if (isMatchValid(match)) {
+					Team home = teamRepository.findBySeedOnCompetition(match.getHome().getSeedOnCompetition()).get(0);
+					match.setHome(home);
+
+					Team away = teamRepository.findBySeedOnCompetition(match.getAway().getSeedOnCompetition()).get(0);
+					match.setAway(away);
+
+					logger.info("Match between {}  AND  {}", home, away);
+
+					matchRepository.saveAndFlush(match);
+				}else {
+					
+					logger.info("Match not valid {}  ", match);
+				}
 
 			}
 
@@ -75,6 +82,18 @@ public class CreateCompetition {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
+
+	}
+
+	public boolean isMatchValid(Match match) {
+		boolean resposta = false;
+
+		if ((teamRepository.findBySeedOnCompetition(match.getHome().getSeedOnCompetition()).size() > 0)) {
+			if ((teamRepository.findBySeedOnCompetition(match.getAway().getSeedOnCompetition()).size() > 0)) {
+				return true;
+			}
+		}
+		return resposta;
 
 	}
 

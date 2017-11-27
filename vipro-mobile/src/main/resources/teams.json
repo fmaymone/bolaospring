@@ -57,6 +57,26 @@
 }
 ,
 {
+"name": "C4",
+"seedOnCompetition": "C4"
+}
+,{
+"name": "D1",
+"seedOnCompetition": "D1"
+
+
+},
+{
+"name": "D2",
+"seedOnCompetition": "D2"
+}
+,
+{
+"name": "D3",
+"seedOnCompetition": "D3"
+}
+,
+{
 "name": "D4",
 "seedOnCompetition": "D4"
 }

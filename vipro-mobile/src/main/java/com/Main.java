@@ -43,13 +43,7 @@ public class Main implements CommandLineRunner {
 
 		createCompetition.createTeams();
 		createCompetition.createMatches();
-		// competitionRepository.insert(new WorldCupCompetition("Copa 2014", "Messi"));
-		// competitionRepository.insert(new UefaChampionsLeagueCompetition("Champions
-		// 2012", "Londres"));
-
-		// logger.info("Todas as Competiçoes -> {}",
-		// competitionRepository.retrieveAllCompetitions());
-
+		
 	}
 
 }
