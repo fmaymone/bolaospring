@@ -106,7 +106,30 @@ public class Bet {
 	}
 	
 	
+	public int calculatePointsBet() {
+		
+		int points = calculatePointsMatch();
+		
+		if(this.match.isKnockout()) {
+			
+			points += calculatePointsKnockOut();
+		}
+		
+		
+		return points;
+		
+	}
 	
+	public int calculatePointsMatch() {
+		
+		return 1;
+	}
+	
+	public int calculatePointsKnockOut() {
+		
+		
+		return 8;
+	}
 	
 	
 	
