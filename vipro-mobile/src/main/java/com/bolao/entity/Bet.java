@@ -43,61 +43,76 @@ public class Bet {
 	@OneToOne
 	private Team home;
 
+	
 	public long getId() {
 		return id;
 	}
+
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
+
 	public User getUser() {
 		return user;
 	}
+
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
+
 	public Match getMatch() {
 		return match;
 	}
+
 
 	public void setMatch(Match match) {
 		this.match = match;
 	}
 
-	public int getscoreHome() {
+
+	public int getScoreHome() {
 		return scoreHome;
 	}
 
-	public void setscoreHome(int scoreHome) {
+
+	public void setScoreHome(int scoreHome) {
 		this.scoreHome = scoreHome;
 	}
 
-	public int getscoreAway() {
+
+	public int getScoreAway() {
 		return scoreAway;
 	}
 
-	public void setscoreAway(int scoreAway) {
+
+	public void setScoreAway(int scoreAway) {
 		this.scoreAway = scoreAway;
 	}
+
 
 	public Team getAway() {
 		return away;
 	}
 
+
 	public void setAway(Team away) {
 		this.away = away;
 	}
+
 
 	public Team getHome() {
 		return home;
 	}
 
+
 	public void setHome(Team home) {
 		this.home = home;
 	}
+
 
 	@Override
 	public String toString() {
