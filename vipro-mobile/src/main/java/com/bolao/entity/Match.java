@@ -46,22 +46,22 @@ public class Match {
 	private boolean knockout;
 	
 	@Column
-	private int score1;
+	private int scoreHome;
 	
 	@Column
-	private int score2;
+	private int scoreAway;
 	
 	@Column
-	private int score1et;
+	private int scoreHomeet;
 	
 	@Column
-	private int score2et;
+	private int scoreAwayet;
 	
 	@Column
-	private int score1penalties;
+	private int scoreHomepenalties;
 	
 	@Column
-	private int score2penalties;
+	private int scoreAwaypenalties;
 	
 	@OneToOne
 	private Team away;
@@ -99,52 +99,52 @@ public class Match {
 		this.knockout = knockout;
 	}
 
-	public int getScore1() {
-		return score1;
+	public int getscoreHome() {
+		return scoreHome;
 	}
 
-	public void setScore1(int score1) {
-		this.score1 = score1;
+	public void setscoreHome(int scoreHome) {
+		this.scoreHome = scoreHome;
 	}
 
-	public int getScore2() {
-		return score2;
+	public int getscoreAway() {
+		return scoreAway;
 	}
 
-	public void setScore2(int score2) {
-		this.score2 = score2;
+	public void setscoreAway(int scoreAway) {
+		this.scoreAway = scoreAway;
 	}
 
-	public int getScore1et() {
-		return score1et;
+	public int getscoreHomeet() {
+		return scoreHomeet;
 	}
 
-	public void setScore1et(int score1et) {
-		this.score1et = score1et;
+	public void setscoreHomeet(int scoreHomeet) {
+		this.scoreHomeet = scoreHomeet;
 	}
 
-	public int getScore2et() {
-		return score2et;
+	public int getscoreAwayet() {
+		return scoreAwayet;
 	}
 
-	public void setScore2et(int score2et) {
-		this.score2et = score2et;
+	public void setscoreAwayet(int scoreAwayet) {
+		this.scoreAwayet = scoreAwayet;
 	}
 
-	public int getScore1penalties() {
-		return score1penalties;
+	public int getscoreHomepenalties() {
+		return scoreHomepenalties;
 	}
 
-	public void setScore1penalties(int score1penalties) {
-		this.score1penalties = score1penalties;
+	public void setscoreHomepenalties(int scoreHomepenalties) {
+		this.scoreHomepenalties = scoreHomepenalties;
 	}
 
-	public int getScore2penalties() {
-		return score2penalties;
+	public int getscoreAwaypenalties() {
+		return scoreAwaypenalties;
 	}
 
-	public void setScore2penalties(int score2penalties) {
-		this.score2penalties = score2penalties;
+	public void setscoreAwaypenalties(int scoreAwaypenalties) {
+		this.scoreAwaypenalties = scoreAwaypenalties;
 	}
 
 	public Team getAway() {
