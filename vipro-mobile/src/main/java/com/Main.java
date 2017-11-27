@@ -41,8 +41,8 @@ public class Main implements CommandLineRunner {
 	@Transactional
 	public void run(String... arg0) throws Exception {
 
-		createCompetition.createTeams();
-		createCompetition.createMatches();
+		//createCompetition.createTeams();
+		//createCompetition.createMatches();
 		
 	}
 
