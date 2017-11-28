@@ -71,8 +71,10 @@ public class Match {
 	
 	@Override
 	public String toString() {
-		
-		return "Match number " + this.num + " || between " + this.home.getName() + " and " + this.away.getName() + " ||";
+		return "Match [id=" + id + ", round=" + round + ", start_at=" + start_at + ", num=" + num + ", knockout="
+				+ knockout + ", scoreHome=" + scoreHome + ", scoreAway=" + scoreAway + ", scoreHomeET=" + scoreHomeET
+				+ ", scoreAwayET=" + scoreAwayET + ", scoreHomePenalties=" + scoreHomePenalties
+				+ ", scoreAwayPenalties=" + scoreAwayPenalties + ", away=" + away + ", home=" + home + "]";
 	}
 
 	

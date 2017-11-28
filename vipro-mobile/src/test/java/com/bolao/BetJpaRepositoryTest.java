@@ -2,6 +2,9 @@ package com.bolao;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -18,6 +21,7 @@ import com.bolao.entity.User;
 import com.bolao.repository.jpa.BetRepositoryJpa;
 import com.bolao.repository.jpa.MatchRepositoryJpa;
 import com.bolao.repository.jpa.UserRepositoryJpa;
+import com.bolao.util.CreateCompetition;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Main.class)
@@ -32,18 +36,36 @@ public class BetJpaRepositoryTest {
 
 	@Autowired
 	UserRepositoryJpa repUsers;
+	
+	@Autowired
+	CreateCompetition createCompetition;
 
-	@Test
+	@Before
 	@Transactional
-	public void makeBet_basic() {
-
+	public void createDataForTests(){
+		
+		createCompetition.createTeams();
+		createCompetition.createMatches();
+		
 		Match match = repMatches.findOne(1L);
 		User user = repUsers.findOne(1L);
 
 		Bet bet = new Bet(user, match, 2, 1);
 		repBets.saveAndFlush(bet);
 		
-		assertEquals(repBets.findByUser(user).isEmpty(), false  );
+		
+	}
+	@Test
+	@Transactional
+	public void makeBet_basic() {
+
+//		Match match = repMatches.findOne(1L);
+		
+//
+//		Bet bet = new Bet(user, match, 2, 1);
+//		repBets.saveAndFlush(bet);
+		
+		assertEquals(repBets.findByUser(repUsers.findOne(1L)).isEmpty(), false  );
 		
 		logger.info(repBets.toString());
 
@@ -52,6 +74,11 @@ public class BetJpaRepositoryTest {
 	@Test
 	@Transactional
 	public void bet_testPointsFirstRound() {
+		
+		User user = repUsers.findOne(1L);
+		List<Bet> bets = repBets.findByUser(user);
+		logger.info("asd");
+		
 
 	}
 
