@@ -54,7 +54,7 @@ public class User {
 		this.pools.add(pools);
 	}
 
-	protected User() {
+	public User() {
 		
 	}
 

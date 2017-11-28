@@ -80,9 +80,25 @@ public class Match {
 	
 	
 	public int getResultRegularTime() {
-		
-		return getScoreHome() - getScoreAway(); 
-		
+		int resposta = 0;
+		if (getScoreHome() - getScoreAway() > 0) {
+			
+			 resposta = 1;
+			
+		} else {
+			
+			if (getScoreHome() - getScoreAway() == 0) {
+				
+				resposta = 0;
+				
+			}else {
+				
+				resposta = 2;
+			}
+			
+			
+		}
+		return resposta;
 	}
 
 	public long getId() {
