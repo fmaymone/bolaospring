@@ -6,10 +6,15 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.bolao.util.Phases;
+
+
 
 @Entity
 public class Round {
@@ -25,6 +30,9 @@ public class Round {
 
 	@Column
 	private Date end_at;
+	
+	@Enumerated
+	private Phases phases;
 
 	@OneToMany(mappedBy="round")
 	private List<Match> matches = new ArrayList<>();
@@ -40,6 +48,12 @@ public class Round {
 
 	}
 
+	public Phases getPhases() {
+		return phases;
+	}
+	public void setPhases(Phases phases) {
+		this.phases = phases;
+	}
 	public long getId() {
 		return id;
 	}
