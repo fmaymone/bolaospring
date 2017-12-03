@@ -14,8 +14,6 @@ import javax.persistence.OneToMany;
 
 import com.bolao.util.Phases;
 
-
-
 @Entity
 public class Round {
 	@Id
@@ -30,30 +28,74 @@ public class Round {
 
 	@Column
 	private Date end_at;
-	
-	@Enumerated
-	private Phases phases;
 
-	@OneToMany(mappedBy="round")
+	@Enumerated
+	private Phases phase;
+
+	@OneToMany(mappedBy = "round")
 	private List<Match> matches = new ArrayList<>();
+
+	public Round(Phases phase) {
+
+		this.phase = phase;
+	}
+
+	public Round(String idPhase) {
+		
+		
+		
+		
+		
+		switch (idPhase) {
+		case "0":
+			this.phase = Phases.PHASE_FIRST;
+			break;
+		case "1":
+			this.phase = Phases.PHASE_8THS;
+			break;
+		case "2":
+			this.phase = Phases.PHASE_4THS;
+			break;
+		case "3":
+			this.phase = Phases.PHASE_2THS;
+			break;
+		case "4":
+			this.phase = Phases.PHASE_3RD;
+			break;
+		case "5":
+			this.phase = Phases.PHASE_FINAL;
+			break;
+
+		default:
+			break;
+		}
+		
+	
+	
+		
+		
+	}
 
 	public void addMatch(Match match) {
 
 		this.matches.add(match);
 
 	}
+
 	public void removeMatch(Match match) {
 
 		this.matches.remove(match);
 
 	}
 
-	public Phases getPhases() {
-		return phases;
+	public Phases getPhase() {
+		return phase;
 	}
-	public void setPhases(Phases phases) {
-		this.phases = phases;
+
+	public void setPhase(Phases phase) {
+		this.phase = phase;
 	}
+
 	public long getId() {
 		return id;
 	}

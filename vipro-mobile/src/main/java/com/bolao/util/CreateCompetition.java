@@ -11,8 +11,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bolao.entity.Match;
+import com.bolao.entity.Round;
 import com.bolao.entity.Team;
 import com.bolao.repository.jpa.MatchRepositoryJpa;
+import com.bolao.repository.jpa.RoundRepositoryJpa;
 import com.bolao.repository.jpa.TeamRepositoryJpa;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,6 +29,9 @@ public class CreateCompetition {
 
 	@Autowired
 	MatchRepositoryJpa matchRepository;
+
+	@Autowired
+	RoundRepositoryJpa roundRepository;
 
 	public void createMatches() {
 
@@ -45,11 +50,17 @@ public class CreateCompetition {
 					Team away = teamRepository.findBySeedOnCompetition(match.getAway().getSeedOnCompetition()).get(0);
 					match.setAway(away);
 
+					if (match.getRound() != null) {
+						Round round = roundRepository.findByPhase(match.getRound().getPhase());
+
+						match.setRound(round);
+					}
+
 					logger.info("Match between {}  AND  {}", home, away);
 
 					matchRepository.saveAndFlush(match);
-				}else {
-					
+				} else {
+
 					logger.info("Match not valid {}  ", match);
 				}
 
@@ -95,6 +106,33 @@ public class CreateCompetition {
 		}
 		return resposta;
 
+	}
+
+	public void createRounds() {
+
+		Round r = new Round(Phases.PHASE_2THS);
+		r.setTitle("Semi-Finais");
+		roundRepository.saveAndFlush(r);
+
+		r = new Round(Phases.PHASE_3RD);
+		r.setTitle("Disputa de 3o e 4o lugar");
+		roundRepository.saveAndFlush(r);
+
+		r = new Round(Phases.PHASE_4THS);
+		r.setTitle("Quartas de Final");
+		roundRepository.saveAndFlush(r);
+
+		r = new Round(Phases.PHASE_8THS);
+		r.setTitle("Oitavas de Final");
+		roundRepository.saveAndFlush(r);
+
+		r = new Round(Phases.PHASE_FINAL);
+		r.setTitle("Final");
+		roundRepository.saveAndFlush(r);
+
+		r = new Round(Phases.PHASE_FIRST);
+		r.setTitle("Primeira Fase");
+		roundRepository.saveAndFlush(r);
 	}
 
 }

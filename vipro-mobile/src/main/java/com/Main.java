@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bolao.entity.Round;
 import com.bolao.repository.jpa.RoundRepositoryJpa;
 import com.bolao.repository.jpa.TeamRepositoryJpa;
+import com.bolao.util.CreateCompetition;
 import com.bolao.util.Phases;
 
 @SpringBootApplication
@@ -29,13 +30,17 @@ public class Main implements CommandLineRunner {
 //	@Autowired
 //	RoundRepository roundRepository;
 //
-//	CompetitionRepository competitionRepository;
+	@Autowired
+	CreateCompetition createCompetition;
 	
 	@Autowired
 	RoundRepositoryJpa rep;
 	
 	@Autowired
 	TeamRepositoryJpa teamRepository;
+	
+	@Autowired
+	RoundRepositoryJpa roundRepository;
 	
 
 	public static void main(String[] args) {
@@ -45,12 +50,14 @@ public class Main implements CommandLineRunner {
 	@Override
 	@Transactional
 	public void run(String... arg0) throws Exception {
-
-		//createCompetition.createTeams();
-		//createCompetition.createMatches();
-		Round r = new Round();
-		r.setPhases(Phases.PHASE_2THS);
-		rep.save(r);
+		
+		createCompetition.createRounds();
+		Round r = roundRepository.findByPhase(Phases.PHASE_2THS);
+		
+	
+		createCompetition.createTeams();
+		createCompetition.createMatches();
+		
 		
 		
 		

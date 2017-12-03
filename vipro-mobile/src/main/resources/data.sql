@@ -8,7 +8,7 @@ INSERT INTO PLAYER(ID,NAME,SQUAD_ID) values (2,'Neymar',2);
 
 
 
-INSERT INTO ROUND(ID,TITLE) values (1,'Primeira Rodada');
+
 
 INSERT INTO POOL(ID,NAME) values (1,'Bolão dos Bebados');
 INSERT INTO USER(ID,NAME) values (1,'Nando');
