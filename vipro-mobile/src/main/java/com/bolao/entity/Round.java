@@ -39,6 +39,10 @@ public class Round {
 
 		this.phase = phase;
 	}
+	
+	public Round() {
+	}
+	
 
 	public Round(String idPhase) {
 		
