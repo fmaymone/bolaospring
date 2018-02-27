@@ -1,23 +1,21 @@
 package com.estudos.codility;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class Lesson06_Distinct_test {
+public class Lesson08_MaxSliceSum_test {
 	
 	
 	
 	@Test
 	public void testArray() throws Exception {
 		
-		Lesson06_Distinct l = new Lesson06_Distinct();
+		Lesson08_MaxSliceSum l = new Lesson08_MaxSliceSum();
 
+		int[] teste3 = {3, 2, -6, 2, 3}; 
 		
-		
-		
-			
-		
+		assertEquals(5, l.solution(teste3));
 //		
 		
 //		Lesson01BinaryGap lesson = new Lesson01BinaryGap();
